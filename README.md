@@ -89,39 +89,6 @@ curl -X POST http://localhost:3000/event      -H "Content-Type: application/json
 
 ---
 
-## 🌍 Exposing with Ngrok
-
-1. Start your local server:
-```bash
-npx ts-node src/index.ts
-```
-
-2. In another terminal, run:
-```bash
-ngrok http 3000
-```
-
-3. Copy the generated HTTPS URL and paste it into the test platform.
-
----
-
-## 🧱 Project Structure
-
-```
-├── src/
-│   ├── controllers/
-│   ├── services/
-│   ├── database/
-│   ├── middlewares/
-│   ├── errors/
-│   ├── routes/
-│   ├── utils/
-│   ├── config/
-│   └── index.ts
-```
-
----
-
 ## 👨‍💻 Author
 
 Made by **Vitor Bertoldi** for the EBANX Software Engineer Challenge.
