@@ -5,7 +5,6 @@ class AccountDatabase<K, V> extends Map<K, V> {
 
   getBalance(id: K) {
     const data = super.get(id);
-
     return data === undefined ? null : data;
   }
 

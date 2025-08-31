@@ -1,9 +1,7 @@
 import { Request, Response, NextFunction } from "express";
-
 import { ApplicationError } from "../errors/ApplicationError";
 import { UncaughtError } from "../errors/UncaughtError";
 import { ValidationError } from "../errors/ValidationError";
-
 import { ZodError } from "zod";
 
 function errorMiddleware(

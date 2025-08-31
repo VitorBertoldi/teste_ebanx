@@ -7,9 +7,7 @@ class NotFoundError extends ApplicationError {
 
   constructor(message?: string | number) {
     super();
-
     this.responseMessage = message || 0;
-
     Object.setPrototypeOf(this, NotFoundError.prototype);
   }
 

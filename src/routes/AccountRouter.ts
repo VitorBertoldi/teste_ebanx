@@ -1,7 +1,5 @@
 import { Router } from "express";
-
 import { AccountController } from "../controllers/AccountController";
-
 import { eventBodySchema } from "../utils/eventBodySchema";
 import { validateBody } from "../middlewares/validationMiddleware";
 

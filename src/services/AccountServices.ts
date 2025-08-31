@@ -19,6 +19,7 @@ class AccountServices {
   static withdraw({ origin, amount }: WithdrawParams) {
     const currentBalance = db.account.getBalance(origin);
     if (currentBalance === null) throw new NotFoundError();
+    if (currentBalance < amount) throw new NotFoundError();
     const newBalance = currentBalance - amount;
     const data = db.account.updateBalance(origin, newBalance);
     return { origin: { id: data.id, balance: data.value } };
@@ -28,16 +29,14 @@ class AccountServices {
     const originBalance = db.account.getBalance(origin);
     const destBalance = db.account.getBalance(destination);
     if (originBalance === null) throw new NotFoundError();
-
+    if (originBalance < amount) throw new NotFoundError();
     const newOriginBalance = originBalance - amount;
     const newDestBalance = (destBalance || 0) + amount;
-
     const dataOrigin = db.account.updateBalance(origin, newOriginBalance);
     const dataDest = db.account.updateOrCreateBalance(
       destination,
       newDestBalance
     );
-
     return {
       origin: { id: dataOrigin.id, balance: dataOrigin.value },
       destination: { id: dataDest.id, balance: dataDest.value },
